@@ -1,0 +1,48 @@
+{
+    "name": "debug-current",
+    "displayName": "Debug current file",
+    "description": "Debug currently opened file",
+    "repository": "https://github.com/ftechz/vscode-debug-current",
+    "version": "0.1.0",
+    "publisher": "phillipcao",
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.debug-current"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.debug-current",
+            "title": "Debug Current File"
+        }],
+        "configuration": {
+            "type": "object",
+            "title": "Debug Current File configuration",
+            "properties": {
+                "debug-current.file": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The filename to debug - this is updated automatically",
+                    "scope": "window"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43"
+    }
+}
