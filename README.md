@@ -10,6 +10,20 @@ Just run the `Debug Current File` command afterwards to start debugging.
 
 Add `${config:debug-current.file}` to `launch.json` where you want to specify the file to debug.
 
+`${config:debug-current.file}` will be substituted with the current filename only (with no folder or extension)
+
+## Example
+```
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "request": "launch",
+            "name": "Test File",
+            "program" : "${workspaceFolder}/${config:debug-current.file}.exe"
+        }
+    ]
+```
+
 ## Extension Settings
 
 There are no user configurable settings.
